@@ -5,12 +5,18 @@
 </div>
 </template>
 <script>
-
-
+import graph from './templates/graph';
+import photo from './templates/photo';
+import videos from './templates/videos';
 
 export default {
     name: 'dynamic-link',
     props: ['data', 'type'],
+    components: {
+        graph,
+        photo,
+        videos
+    },
     data() {
         return {}
     },
@@ -19,7 +25,7 @@ export default {
             if (!this.type) {
                 return null;
             }
-            return () => import(`./templates/${this.type}`);;
+            return this.type;
         },
     }
 }
